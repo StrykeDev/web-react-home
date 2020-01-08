@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 import Footer from "./Footer";
 import PageNotFound from "./PageNotFound";
 

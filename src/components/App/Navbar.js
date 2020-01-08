@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
 import { PagesContext } from "../../contexts/PagesContext";
@@ -10,23 +10,24 @@ const NavBar = props => {
   const { auth } = useContext(AuthContext);
 
   const user = auth.current ? (
-    <>
-      <Navbar.Text>
-        Signed in as: <strong>{auth.current}</strong>
-      </Navbar.Text>
-      <Nav.Link as={Link} to="/sign-out">
+    <NavDropdown title={auth.current}>
+      <NavDropdown.Item as={Link} to="/profile">
+        Profile
+      </NavDropdown.Item>
+      <NavDropdown.Divider />
+      <NavDropdown.Item as={Link} to="/sign-out">
         Sign Out
-      </Nav.Link>
-    </>
+      </NavDropdown.Item>
+    </NavDropdown>
   ) : (
-    <>
-      <Nav.Link as={Link} to="/sign-in">
-        Sign In
-      </Nav.Link>
-      <Nav.Link as={Link} to="/sign-up">
-        Sign Up
-      </Nav.Link>
-    </>
+    <NavDropdown title="Hello Stranger">
+      <NavDropdown.Item as={Link} to="/sign-in">
+        Sign in
+      </NavDropdown.Item>
+      <NavDropdown.Item as={Link} to="/sign-up">
+        Sign up
+      </NavDropdown.Item>
+    </NavDropdown>
   );
 
   const links = pages.map(page => {
