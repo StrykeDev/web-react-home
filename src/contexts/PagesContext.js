@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import Home from "../components/pages/Home/Home";
+import Profile from "../components/pages/Profile";
 import TodoList from "../components/pages/TodoList";
 import SignIn from "../components/auth/SignIn";
 import SignUp from "../components/auth/SignUp";
@@ -31,6 +32,12 @@ const PagesContextProvider = props => {
       page: "Sign Out",
       url: "/sign-out",
       content: SignOut,
+      nav: false
+    },
+    {
+      page: "Profile",
+      url: "/profile",
+      content: Profile,
       nav: false
     },
     {

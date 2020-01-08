@@ -27,16 +27,15 @@ const HomeHeader = props => {
     "December"
   ];
 
-  const bg = props.bg
-    ? props.bg
-    : "url(https://picsum.photos/960/540?grayscale)";
+  // random url(https://picsum.photos/960/540?grayscale) 
+  // static url(https://i.picsum.photos/id/575/960/540.jpg?grayscale)
 
   return (
     <Jumbotron
       fluid
       className="px-3 text-white"
       style={{
-        background: bg,
+        background: "url(https://i.picsum.photos/id/575/960/540.jpg?grayscale)", 
         backgroundPosition: "50% 50%",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
