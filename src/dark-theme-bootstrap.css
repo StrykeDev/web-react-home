@@ -49,7 +49,6 @@
 *::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  transition: 0.1s ease-in-out;
 }
 *::selection {
   color: var(--primary);
