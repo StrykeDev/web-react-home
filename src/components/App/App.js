@@ -12,11 +12,11 @@ const App = () => {
   document.title = "Useless Website.io";
 
   return (
-    <main className="my-5 pt-1 pb-2">
+    <main className="mt-5">
       <header>
         <NavBar />
       </header>
-      <main className="h-100">
+      <section>
         <Switch>
           {pages.map(page => (
             <Route
@@ -30,7 +30,7 @@ const App = () => {
           {/* 404 page*/}
           <Route path="*" component={PageNotFound} />
         </Switch>
-      </main>
+      </section>
 
       <Footer />
     </main>

@@ -30,9 +30,7 @@ const Profile = props => {
               <h3>
                 {user.firstname} {user.lastname}
               </h3>
-              <p className="lead">
-                {user.username}
-              </p>
+              <p className="lead">{user.username}</p>
             </span>
           </Jumbotron>
         </div>
