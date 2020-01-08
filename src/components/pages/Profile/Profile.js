@@ -17,7 +17,7 @@ const Profile = props => {
 
       <Container className="d-flex flex-wrap">
         <div className="col-12 p-2">
-          <Jumbotron className="d-flex align-items-center flex-md-row flex-column m-2 p-3 pb-4 w-100 h-100">
+          <Jumbotron className="d-flex align-items-center flex-md-row flex-column p-3 pb-4 w-100 h-100">
             <img
               src={defaultProfileImage}
               alt=""
@@ -36,22 +36,22 @@ const Profile = props => {
         </div>
 
         <div className="col-12 col-lg-6 p-2">
-          <Jumbotron className="m-2 p-3 pb-4 w-100 h-100">
+          <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>Todo list settings</p>
           </Jumbotron>
         </div>
         <div className="col-12 col-lg-6 p-2">
-          <Jumbotron className="m-2 p-3 pb-4 w-100 h-100">
+          <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>Weather settings</p>
           </Jumbotron>
         </div>
         <div className="col-12 col-lg-6 p-2">
-          <Jumbotron className="m-2 p-3 pb-4 w-100 h-100">
+          <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>RSS settings</p>
           </Jumbotron>
         </div>
         <div className="col-12 col-lg-6 p-2">
-          <Jumbotron className="m-2 p-3 pb-4 w-100 h-100">
+          <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>profile settings</p>
           </Jumbotron>
         </div>
