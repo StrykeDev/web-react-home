@@ -26,7 +26,7 @@
   --white: #fff;
   --gray: #555;
   --gray-dark: #222;
-  --primary: #d6bc2a;
+  --primary: #2a9fd6;
   --secondary: #555;
   --success: #77b300;
   --info: #9933cc;
@@ -49,6 +49,11 @@
 *::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  transition: 0.1s ease-in-out;
+}
+*::selection {
+  color: var(--primary);
+  background: none;
 }
 html {
   font-family: sans-serif;
