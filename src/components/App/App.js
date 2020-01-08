@@ -16,20 +16,21 @@ const App = () => {
       <header>
         <NavBar />
       </header>
+      <main className="h-100">
+        <Switch>
+          {pages.map(page => (
+            <Route
+              exact
+              path={page.url}
+              key={page.page}
+              component={page.content}
+            />
+          ))}
 
-      <Switch>
-        {pages.map(page => (
-          <Route
-            exact
-            path={page.url}
-            key={page.page}
-            component={page.content}
-          />
-        ))}
-
-        {/* 404 page*/}
-        <Route path="*" component={PageNotFound} />
-      </Switch>
+          {/* 404 page*/}
+          <Route path="*" component={PageNotFound} />
+        </Switch>
+      </main>
 
       <Footer />
     </main>

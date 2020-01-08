@@ -27,10 +27,10 @@ const Profile = props => {
               className=" p-4"
             />
             <span className="text-center text-md-left">
-              <h2>
+              <h3>
                 {user.firstname} {user.lastname}
-              </h2>
-              <p className="lead mx-1" style={{ marginTop: "-0.5rem" }}>
+              </h3>
+              <p className="lead">
                 {user.username}
               </p>
             </span>

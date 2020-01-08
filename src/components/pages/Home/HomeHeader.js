@@ -43,7 +43,7 @@ const HomeHeader = props => {
       }}
     >
       <Container>
-        <h1 className="display-3">{days[d.getDay()]}</h1>
+        <h1>{days[d.getDay()]}</h1>
         <p className="lead">
           {d.getDate()} {months[d.getMonth()]} {d.getFullYear()}
         </p>

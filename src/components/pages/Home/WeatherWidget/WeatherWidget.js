@@ -42,13 +42,13 @@ const WeatherWidget = props => {
       }}
     >
       <div className="d-flex flex-row my-auto">
-        <h1 className="display-2">{Math.round(weather.main.temp)}</h1>
+        <h1>{Math.round(weather.main.temp)}</h1>
 
-        <h5 className="mt-3 mx-2">°C</h5>
+        <h5 className="mt-2 mx-1">°C</h5>
 
-        <h3 className="text-capitalize mt-auto my-4 mx-2">
+        <h4 className="text-capitalize mt-auto mb-3 mx-2">
           {weather.weather[0].description}
-        </h3>
+        </h4>
       </div>
 
       <ul className="list-unstyled d-flex flex-row mt-auto align-items-center">
@@ -57,19 +57,19 @@ const WeatherWidget = props => {
             src={getIcon(weather.weather[0].icon)}
             alt={weather.weather[0].main}
             height="32"
-            className="mx-2"
+            className="mx-1"
             style={{ filter: "grayscale(1)" }}
           />
           {weather.name}, {weather.sys.country}
         </li>
-        <li className="mx-3"></li>
+        <li className="mx-2"></li>
         <li>
-          <img src={icoHumidity} alt="Humidity" height="20" className="mx-2" />
+          <img src={icoHumidity} alt="Humidity" height="16" className="mx-1" />
           {weather.main.humidity}%
         </li>
-        <li className="mx-3"></li>
+        <li className="mx-2"></li>
         <li>
-          <img src={icoWind} alt="Wind speed" height="20" className="mx-2" />
+          <img src={icoWind} alt="Wind speed" height="16" className="mx-1" />
           {weather.wind.speed} m/s
         </li>
       </ul>
