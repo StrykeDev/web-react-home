@@ -16,6 +16,7 @@ const App = () => {
       <header>
         <NavBar />
       </header>
+      
       <section>
         <Switch>
           {pages.map(page => (
