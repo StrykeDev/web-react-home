@@ -29,7 +29,7 @@ const todoReducer = (state, action) => {
       return state.filter(todo => !todo.completed);
 
     default:
-      return state;
+      throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
 

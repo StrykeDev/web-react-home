@@ -5,6 +5,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 const SignOut = props => {
   const { dispatch } = useContext(AuthContext);
   dispatch({ type: "LOGOUT" });
+  window.location.href = "/";
   return <Redirect to="/" />;
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { AuthContext } from "../../contexts/AuthContext";
 
@@ -20,13 +20,15 @@ const SignIn = props => {
     } else {
       setValidated(false);
       dispatch({ type: "LOGIN", username, password });
-      if (auth.current) {
-        props.history.push("/");
-      } else {
-        setLoginError(true);
-      }
+      setLoginError(true);
     }
   };
+
+  useEffect(() => {
+    if (auth.current) {
+      props.history.push("/");
+    }
+  });
 
   return (
     <Container className="d-flex justify-content-center">
