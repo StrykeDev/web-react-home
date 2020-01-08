@@ -12,7 +12,7 @@ const App = () => {
   document.title = "Useless Website.io";
 
   return (
-    <main>
+    <main className="my-5">
       <header>
         <NavBar />
       </header>
@@ -26,6 +26,7 @@ const App = () => {
             component={page.content}
           />
         ))}
+        
         {/* 404 page*/}
         <Route path="*" component={PageNotFound} />
       </Switch>

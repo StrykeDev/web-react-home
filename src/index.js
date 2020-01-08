@@ -5,9 +5,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import App from "./components/App";
 
-import PagesContextProvider from "./contexts/PagesContext";
 import AuthContextProvider from "./contexts/AuthContext";
+import PagesContextProvider from "./contexts/PagesContext";
 import TodoListContextProvider from "./contexts/TodoListContext";
+import WeatherContextProvider from "./contexts/WeatherContext";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./dark-theme-bootstrap.css";
@@ -16,9 +17,11 @@ ReactDOM.render(
   <AuthContextProvider>
     <PagesContextProvider>
       <TodoListContextProvider>
-        <Router>
-          <App />
-        </Router>
+        <WeatherContextProvider>
+          <Router>
+            <App />
+          </Router>
+        </WeatherContextProvider>
       </TodoListContextProvider>
     </PagesContextProvider>
   </AuthContextProvider>,

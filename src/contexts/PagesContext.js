@@ -1,9 +1,9 @@
 import React, { createContext, useState } from "react";
 import Home from "../components/pages/Home/Home";
+import TodoList from "../components/pages/TodoList";
 import SignIn from "../components/auth/SignIn";
 import SignUp from "../components/auth/SignUp";
 import SignOut from "../components/auth/SignOut";
-import TodoList from "../components/pages/TodoList";
 
 export const PagesContext = createContext();
 

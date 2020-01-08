@@ -42,7 +42,7 @@ const NavBar = props => {
   });
 
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar bg="dark" variant="dark" expand="md" fixed="top" >
       <Container>
         <Navbar.Brand as={Link} to="/">
           ¯\_(ツ)_/¯
