@@ -88,18 +88,8 @@ const TodoList = props => {
   return (
     <div>
       {messageBox}
-      <Jumbotron fluid className="p-3">
+      <Jumbotron fluid className="pt-5 pb-3">
         <Container>
-          <h4 className="text-center">
-            <input
-              className="title-checkbox"
-              type="checkbox"
-              checked
-              readOnly
-            />
-            Todo List
-          </h4>
-
           <AddTodo />
 
           <div className="d-flex justify-content-start">
