@@ -1,0 +1,38 @@
+.title-checkbox {
+  transform: scale(2);
+  margin: 1rem;
+  position: relative;
+  top: -5px;
+}
+ul.todolist {
+  padding: 0;
+  margin: 0;
+}
+
+ul.todolist li {
+  list-style: none;
+  border-bottom: dotted var(--secondary) 1px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+ul.todolist li span {
+  font-size: 12pt;
+  word-wrap: break-word;
+  width: 90%;
+}
+
+ul.todolist .completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+ul.todolist .btn-remove-todo {
+  margin: 5px;
+  padding: 0;
+  min-height: 12pt;
+  height: 12pt;
+  min-width: 12pt;
+  width: 12pt;
+  border-radius: 100%;
+}
