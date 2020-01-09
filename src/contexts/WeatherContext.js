@@ -43,8 +43,6 @@ const WeatherContextProvider = props => {
   };
 
   useEffect(() => {
-    getCurrentLocation();
-
     Axios.get(url).then(res => {
       if (res.status === 200) {
         setWeather(res.data);
@@ -52,6 +50,7 @@ const WeatherContextProvider = props => {
       } else {
         console.error("Failed to fetch weather data.", res);
       }
+      getCurrentLocation();
     });
   }, [url, lastUpdate]);
 
