@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Container, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
-const SignOut = props => {
+const SignOut = () => {
   const { dispatch } = useContext(AuthContext);
 
   const signOut = () => {
