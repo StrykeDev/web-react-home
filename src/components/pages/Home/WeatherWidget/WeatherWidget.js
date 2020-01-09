@@ -60,7 +60,7 @@ const WeatherWidget = props => {
             className="mx-1"
             style={{ filter: "grayscale(1)" }}
           />
-          {weather.name}, {weather.sys.country}
+          {weather.name} {weather.sys.country}
         </li>
         <li className="mx-2"></li>
         <li>
