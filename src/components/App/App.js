@@ -12,12 +12,12 @@ const App = () => {
   document.title = "Useless Website.io";
 
   return (
-    <main className="mt-5">
+    <main className="pt-5 d-flex flex-column" style={{minHeight: "100vh"}}>
       <header>
         <NavBar />
       </header>
       
-      <section>
+      <section className="flex-fill">
         <Switch>
           {pages.map(page => (
             <Route
@@ -33,7 +33,7 @@ const App = () => {
         </Switch>
       </section>
 
-      <Footer />
+      <Footer className="align-self-end"/>
     </main>
   );
 };
