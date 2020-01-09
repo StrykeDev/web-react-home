@@ -25,25 +25,26 @@ const WeatherContextProvider = props => {
       country: ""
     }
   });
-  const [location, setLocation] = useState({ lat: 0, lot: 0 });
+  const [location, setLocation] = useState({ lat: 0, lon: 0 });
   const appid = "eacfa3060655612bc2d28b3da22f78b6";
-  const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${location.lat}&lon=${location.lot}&appid=${appid}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${location.lat}&lon=${location.lon}&appid=${appid}`;
 
   const getCurrentLocation = () => {
     if (navigator.geolocation) {
       return navigator.geolocation.getCurrentPosition(position => {
         setLocation({
           lat: position.coords.latitude,
-          lot: position.coords.longitude
+          lon: position.coords.longitude
         });
       });
     } else {
       console.warn("Geolocation is not supported by this browser.");
     }
   };
-  getCurrentLocation();
 
   useEffect(() => {
+    getCurrentLocation();
+
     Axios.get(url).then(res => {
       if (res.status === 200) {
         setWeather(res.data);
@@ -52,7 +53,7 @@ const WeatherContextProvider = props => {
         console.error("Failed to fetch weather data.", res);
       }
     });
-  }, [location, url, lastUpdate]);
+  }, [url, lastUpdate]);
 
   window.setTimeout(() => setLastUpdate(Date()), 10 * 60 * 1000);
 
