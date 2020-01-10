@@ -3,8 +3,8 @@ import { Jumbotron, Spinner } from "react-bootstrap";
 
 import { WeatherContext } from "../../../../contexts/WeatherContext";
 
-import icoHumidity from "./assats/drop-silhouette.png";
-import icoWind from "./assats/weather.png";
+import icoHumidity from "./assats/icon_humidity.svg";
+import icoWind from "./assats/icon_wind.svg";
 import backgroundLightCoulds from "./assats/background_light_clouds.png";
 import backgroundCoulds from "./assats/background_clouds.png";
 import backgroundRain from "./assats/background_rain.png";
