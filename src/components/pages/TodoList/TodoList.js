@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Container, Jumbotron, Button } from "react-bootstrap";
 
-import MessageBox from "../../MessageBox";
+import Popup from "../../../helpers/Popup";
+
 import AddTodo from "./AddTodo";
 import TodoItem from "./TodoItem";
 
@@ -12,7 +13,6 @@ import "./TodoList.css";
 const TodoList = props => {
   const { todos, dispatch } = useContext(TodoListContext);
   const [listFilter, setListFilter] = useState();
-  const [messageBox, setMessageBox] = useState();
 
   let todoList = [];
   switch (listFilter) {
@@ -29,65 +29,52 @@ const TodoList = props => {
       break;
   }
 
-  // Handle remove completed
-  const handleRemoveCompletedAlert = () => {
+  const handleRemoveCompleted = () => {
     const buttons = [
       {
         text: "Remove",
         variant: "danger",
-        action: () => handleRemoveCompleted()
+        onClick: () => dispatch({ type: "REMOVE_COMPLETED" })
       },
       {
         text: "Cancel",
         variant: "secondary",
-        action: () => setMessageBox()
+        onClick: () => {}
       }
     ];
-    setMessageBox(
-      <MessageBox
-        title="Remove Completed?"
-        body="Are you sure that you want to remove all the completed todos?"
-        buttons={buttons}
-      />
-    );
-  };
 
-  const handleRemoveCompleted = () => {
-    dispatch({ type: "REMOVE_COMPLETED" });
-    setMessageBox();
-  };
-
-  // Handle complete list
-  const handleCompletedListAlert = () => {
-    const buttons = [
-      {
-        text: "All Done",
-        variant: "primary",
-        action: () => handleCompletedList()
-      },
-      {
-        text: "Cancel",
-        variant: "secondary",
-        action: () => setMessageBox()
-      }
-    ];
-    setMessageBox(
-      <MessageBox
-        title="Completed The List?"
-        body="Are you sure that you completed all the todos?"
-        buttons={buttons}
-      />
+    const popup = new Popup();
+    popup.showModal(
+      "Remove Completed?",
+      "Are you sure that you want to remove all the completed todos?",
+      buttons
     );
   };
 
   const handleCompletedList = () => {
-    dispatch({ type: "COMPLETE_ALL" });
-    setMessageBox();
+    const buttons = [
+      {
+        text: "All Done",
+        variant: "primary",
+        onClick: () => dispatch({ type: "COMPLETE_ALL" })
+      },
+      {
+        text: "Cancel",
+        variant: "secondary",
+        onClick: () => {}
+      }
+    ];
+
+    const popup = new Popup();
+    popup.showModal(
+      "Completed The List?",
+      "Are you sure that you completed all the todos?",
+      buttons
+    );
   };
 
   return (
-    <div>
-      {messageBox}
+    <>
       <Jumbotron fluid className="pt-5 pb-3">
         <Container>
           <AddTodo />
@@ -122,7 +109,7 @@ const TodoList = props => {
               size="sm"
               variant="secondary"
               className="ml-auto"
-              onClick={handleRemoveCompletedAlert}
+              onClick={handleRemoveCompleted}
             >
               Remove Completed
             </Button>
@@ -130,7 +117,7 @@ const TodoList = props => {
               size="sm"
               variant="secondary"
               className="ml-2"
-              onClick={handleCompletedListAlert}
+              onClick={handleCompletedList}
             >
               Completed List
             </Button>
@@ -145,7 +132,7 @@ const TodoList = props => {
           ))}
         </ul>
       </Container>
-    </div>
+    </>
   );
 };
 

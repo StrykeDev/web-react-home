@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import * as serviceWorker from "./serviceWorker";
 import App from "./components/App";
+import Popup from "./helpers/Popup";
 
 import AuthContextProvider from "./contexts/AuthContext";
 import PagesContextProvider from "./contexts/PagesContext";
@@ -19,6 +20,7 @@ ReactDOM.render(
       <TodoListContextProvider>
         <WeatherContextProvider>
           <Router>
+            <Popup />
             <App />
           </Router>
         </WeatherContextProvider>
