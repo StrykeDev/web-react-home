@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Spinner, Media } from "react-bootstrap";
 
-import { RSSContext } from "../../../../contexts/RSSConext";
+import { RSSContext } from "../../../../contexts/RSSContext";
 
 const RssWidget = () => {
   const { feed, provider } = useContext(RSSContext);

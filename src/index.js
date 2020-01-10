@@ -10,7 +10,7 @@ import AuthContextProvider from "./contexts/AuthContext";
 import PagesContextProvider from "./contexts/PagesContext";
 import TodoListContextProvider from "./contexts/TodoListContext";
 import WeatherContextProvider from "./contexts/WeatherContext";
-import RSSContextProvider from "./contexts/RSSConext";
+import RSSContextProvider from "./contexts/RSSContext";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./dark-theme-bootstrap.css";
