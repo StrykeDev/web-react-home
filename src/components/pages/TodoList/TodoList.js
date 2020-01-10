@@ -110,6 +110,7 @@ const TodoList = props => {
               variant="secondary"
               className="ml-auto"
               onClick={handleRemoveCompleted}
+              disabled={!todos.filter(todo => todo.completed).length > 0}
             >
               Remove Completed
             </Button>
@@ -118,6 +119,7 @@ const TodoList = props => {
               variant="secondary"
               className="ml-2"
               onClick={handleCompletedList}
+              disabled={!todos.filter(todo => !todo.completed).length > 0}
             >
               Completed List
             </Button>

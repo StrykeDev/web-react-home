@@ -14,13 +14,13 @@ const TodoWidget = props => {
     <>
       <p>Your oldest active todos:</p>
 
-      <ul className="list-unstyled w-100">
+      <ul className="list-unstyled flex-fill">
         {recent.map(todo => (
           <TodoWidgetTodo key={todo.id} todo={todo} />
         ))}
       </ul>
 
-      <Link to="/todo-list" className="ml-auto mt-auto">
+      <Link to="/todo-list" className="align-self-end">
         View full list
       </Link>
     </>
@@ -36,7 +36,7 @@ const TodoWidget = props => {
   );
 
   return (
-    <div className="w-100 d-flex flex-column">
+    <div className="h-100 w-100 d-flex flex-column">
       {recent.length > 0 ? list : noList}
     </div>
   );
