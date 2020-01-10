@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Jumbotron } from "react-bootstrap";
+import { Jumbotron, Spinner } from "react-bootstrap";
 
 import { WeatherContext } from "../../../../contexts/WeatherContext";
 
@@ -33,14 +33,8 @@ const WeatherWidget = props => {
     }
   };
 
-  return (
-    <Jumbotron
-      className="p-3 text-white d-flex flex-column w-100 h-100"
-      style={{
-        background: getGradient(weather.main.temp),
-        height: "250px"
-      }}
-    >
+  const weatherInfo = weather ? (
+    <>
       <div className="d-flex flex-row my-auto">
         <h1>{Math.round(weather.main.temp)}</h1>
 
@@ -73,6 +67,24 @@ const WeatherWidget = props => {
           {weather.wind.speed} m/s
         </li>
       </ul>
+    </>
+  ) : (
+    <div className="d-flex align-items-center justify-content-center flex-fill">
+      <Spinner animation="grow" className="m-2" />
+      <Spinner animation="grow" className="m-2" />
+      <Spinner animation="grow" className="m-2" />
+    </div>
+  );
+
+  return (
+    <Jumbotron
+      className="p-3 text-white d-flex flex-column w-100 h-100"
+      style={{
+        background: getGradient(weather ? weather.main.temp : 20),
+        height: "250px"
+      }}
+    >
+      {weatherInfo}
     </Jumbotron>
   );
 };
