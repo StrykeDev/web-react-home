@@ -47,7 +47,13 @@ const RssWidget = props => {
                   }}
                 />
                 <Media.Body>
-                  <a href={item.children[1].value}>{item.children[0].value}</a>
+                  <a
+                    href={item.children[1].value}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.children[0].value}
+                  </a>
                   <small className="d-block d-lg-inline">
                     <span className="d-none d-lg-inline"> | </span>
                     {item.children[5].value}
