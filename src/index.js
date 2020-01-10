@@ -10,6 +10,7 @@ import AuthContextProvider from "./contexts/AuthContext";
 import PagesContextProvider from "./contexts/PagesContext";
 import TodoListContextProvider from "./contexts/TodoListContext";
 import WeatherContextProvider from "./contexts/WeatherContext";
+import RSSContextProvider from "./contexts/RSSConext";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./dark-theme-bootstrap.css";
@@ -19,10 +20,12 @@ ReactDOM.render(
     <PagesContextProvider>
       <TodoListContextProvider>
         <WeatherContextProvider>
-          <Router>
-            <Popup />
-            <App />
-          </Router>
+          <RSSContextProvider>
+            <Router>
+              <Popup />
+              <App />
+            </Router>
+          </RSSContextProvider>
         </WeatherContextProvider>
       </TodoListContextProvider>
     </PagesContextProvider>

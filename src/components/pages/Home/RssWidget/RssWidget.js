@@ -1,32 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Axios from "axios";
-import XMLParser from "react-xml-parser";
+import React, { useContext } from "react";
 import { Spinner, Media } from "react-bootstrap";
 
-const RssWidget = props => {
-  const [lastUpdate, setLastUpdate] = useState(Date());
-  const [feed, setFeed] = useState();
-  const [provider, setProvider] = useState();
-  //const feedUrl = "http://www.ynet.co.il/Integration/StoryRss544.xml";
-  const feedUrl = "https://www.nasa.gov/rss/dyn/breaking_news.rss";
+import { RSSContext } from "../../../../contexts/RSSConext";
 
-  useEffect(() => {
-    Axios.get(`https://cors-anywhere.herokuapp.com/${feedUrl}`).then(res => {
-      if (res.status === 200) {
-        const xml = new XMLParser().parseFromString(res.data);
-        setFeed(xml.getElementsByTagName("item").slice(0, 5));
-
-        setProvider({
-          title: xml.getElementsByTagName("title")[0].value,
-          link: xml.getElementsByTagName("link")[0].value,
-          desc: xml.getElementsByTagName("description")[0].value
-        });
-        console.log("RSS data updated.");
-      }
-    });
-  }, [lastUpdate]);
-
-  window.setTimeout(() => setLastUpdate(Date()), 10 * 60 * 1000);
+const RssWidget = () => {
+  const { feed, provider } = useContext(RSSContext);
 
   return (
     <div className="h-100 d-flex flex-column">
