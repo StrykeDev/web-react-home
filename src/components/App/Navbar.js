@@ -70,7 +70,7 @@ const NavBar = props => {
       expand="md"
       fixed="top"
       collapseOnSelect={true}
-      className="p-1"
+      className="py-1"
     >
       <Container>
         <Nav.Link eventKey="logo" as={NavLink} to="/" className="p-0 m-0">
