@@ -35,7 +35,7 @@ const HomeHeader = props => {
       fluid
       className="px-3 text-white"
       style={{
-        background: "url(https://i.picsum.photos/id/575/960/540.jpg?grayscale)", 
+        background: "url(https://i.picsum.photos/id/575/1920/540.jpg?grayscale)", 
         backgroundPosition: "50% 50%",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
