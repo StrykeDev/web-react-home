@@ -7,7 +7,9 @@ export const RSSContext = createContext();
 const RSSReducer = (state, action) => {
   switch (action.type) {
     case "SET_FEED":
-      return action.url;
+      return action.url
+        ? action.url
+        : "https://www.nasa.gov/rss/dyn/breaking_news.rss";
 
     case "RESET_FEED":
       return "https://www.nasa.gov/rss/dyn/breaking_news.rss";
@@ -33,16 +35,20 @@ const RSSContextProvider = props => {
   }, [feedUrl]);
 
   useEffect(() => {
+    setProvider();
+    setFeed();
+
     Axios.get(`https://cors-anywhere.herokuapp.com/${feedUrl}`).then(res => {
       if (res.status === 200) {
         const xml = new XMLParser().parseFromString(res.data);
-        setFeed(xml.getElementsByTagName("item").slice(0, 5));
 
         setProvider({
           title: xml.getElementsByTagName("title")[0].value,
           link: xml.getElementsByTagName("link")[0].value,
           desc: xml.getElementsByTagName("description")[0].value
         });
+        setFeed(xml.getElementsByTagName("item").slice(0, 5));
+
         console.log("RSS data updated.");
       }
     });
