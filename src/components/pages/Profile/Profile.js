@@ -1,15 +1,35 @@
-import React, { useContext } from "react";
-import { Container, Jumbotron } from "react-bootstrap";
+import React, { useContext, useState, useEffect } from "react";
+import { Container, Jumbotron, Form, Button } from "react-bootstrap";
 
 import { AuthContext } from "../../../contexts/AuthContext";
+import { RSSContext } from "../../../contexts/RSSContext";
+
+import HomeHeader from "../Home/HomeHeader";
 
 import defaultProfileImage from "./assats/profile-image.png";
-import HomeHeader from "../Home/HomeHeader";
 
 const Profile = props => {
   const { auth } = useContext(AuthContext);
+  const { provider, feedUrl, dispatch } = useContext(RSSContext);
   const user = auth.users.find(user => user.username === auth.current);
-  console.log(user);
+  const [formRSSFeed, setFormRSSFeed] = useState(feedUrl);
+  const [validated, setValidated] = useState(false);
+
+  useEffect(() => {
+    setFormRSSFeed(feedUrl);
+  }, [feedUrl]);
+
+  const handleSubmitRSS = e => {
+    e.preventDefault();
+
+    if (e.currentTarget.checkValidity() === false) {
+      e.stopPropagation();
+      setValidated(true);
+    } else {
+      setValidated(false);
+      dispatch({ type: "SET_FEED", url: formRSSFeed });
+    }
+  };
 
   return (
     <>
@@ -35,26 +55,61 @@ const Profile = props => {
           </Jumbotron>
         </div>
 
-        <div className="col-12 col-lg-6 p-2">
+        {/* <div className="col-12 col-lg-6 p-2">
           <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>Todo list settings</p>
           </Jumbotron>
-        </div>
-        <div className="col-12 col-lg-6 p-2">
+        </div> */}
+        {/* <div className="col-12 col-lg-6 p-2">
           <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>Weather settings</p>
           </Jumbotron>
-        </div>
+        </div> */}
         <div className="col-12 col-lg-6 p-2">
           <Jumbotron className="p-3 pb-4 w-100 h-100">
-            <p>RSS settings</p>
+            <p>RSS Options</p>
+            <p>Current feed: {provider ? provider.title : "None"}</p>
+            <Form noValidate validated={validated} onSubmit={handleSubmitRSS}>
+              <Form.Group controlId="feedUrl" className="m-1 mb-2">
+                <Form.Label>RSS Feed: </Form.Label>
+                <Form.Control
+                  name="rssFeed"
+                  type="text"
+                  value={formRSSFeed}
+                  onChange={e => setFormRSSFeed(e.target.value)}
+                  required
+                />
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid RSS feed.
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group
+                controlId="formButton"
+                className="mx-1 my-4 d-flex flex-row"
+              >
+                <Button
+                  variant="secondary"
+                  type="submit"
+                  className="flex-fill mr-2"
+                >
+                  Save
+                </Button>
+                <Button
+                  variant="secondary"
+                  onClick={() => dispatch({ type: "RESET_FEED" })}
+                >
+                  Reset
+                </Button>
+              </Form.Group>
+            </Form>
           </Jumbotron>
         </div>
-        <div className="col-12 col-lg-6 p-2">
+        {/* <div className="col-12 col-lg-6 p-2">
           <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>profile settings</p>
           </Jumbotron>
-        </div>
+        </div> */}
       </Container>
     </>
   );
