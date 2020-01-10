@@ -5,6 +5,12 @@ import { WeatherContext } from "../../../../contexts/WeatherContext";
 
 import icoHumidity from "./assats/drop-silhouette.png";
 import icoWind from "./assats/weather.png";
+import backgroundLightCoulds from "./assats/background_light_clouds.png";
+import backgroundCoulds from "./assats/background_clouds.png";
+import backgroundRain from "./assats/background_rain.png";
+import backgroundThunderstorm from "./assats/background_thunderstorm.png";
+import backgroundSnow from "./assats/background_snow.png";
+import backgroundMist from "./assats/background_mist.png";
 
 const WeatherWidget = props => {
   const { weather } = useContext(WeatherContext);
@@ -33,8 +39,36 @@ const WeatherWidget = props => {
     }
   };
 
+  const getBackground = id => {
+    switch (id.match(/\d+/)[0]) {
+      case "02":
+      case "03":
+        return backgroundLightCoulds;
+      case "04":
+      case "09":
+        return backgroundCoulds;
+      case "10":
+        return backgroundRain;
+      case "11":
+        return backgroundThunderstorm;
+      case "13":
+        return backgroundSnow;
+      case "50":
+        return backgroundMist;
+      default:
+        return "";
+    }
+  };
+
   const weatherInfo = weather ? (
-    <>
+    <div
+      className="d-flex flex-column w-100 h-100 p-3"
+      style={{
+        backgroundImage: `url(${getBackground(weather.weather[0].icon)})`,
+        backgroundPosition: "50% 50%",
+        backgroundSize: "cover"
+      }}
+    >
       <div className="d-flex flex-row my-auto">
         <h1>{Math.round(weather.main.temp)}</h1>
 
@@ -67,9 +101,9 @@ const WeatherWidget = props => {
           {weather.wind.speed} m/s
         </li>
       </ul>
-    </>
+    </div>
   ) : (
-    <div className="d-flex align-items-center justify-content-center flex-fill">
+    <div className="d-flex align-items-center justify-content-center flex-fill p-3">
       <Spinner animation="grow" className="m-2" />
       <Spinner animation="grow" className="m-2" />
       <Spinner animation="grow" className="m-2" />
@@ -78,10 +112,9 @@ const WeatherWidget = props => {
 
   return (
     <Jumbotron
-      className="p-3 text-white d-flex flex-column w-100 h-100"
+      className="m-0 p-0 h-100 w-100 text-white overflow-hidden"
       style={{
-        background: getGradient(weather ? weather.main.temp : 20),
-        height: "250px"
+        background: getGradient(weather ? weather.main.temp : 0)
       }}
     >
       {weatherInfo}
