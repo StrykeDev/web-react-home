@@ -9,7 +9,7 @@ import { PagesContext } from "../../contexts/PagesContext";
 
 const App = () => {
   const { pages } = useContext(PagesContext);
-  document.title = "Useless Website.io";
+  document.title = "HomePage.io";
 
   return (
     <main className="pt-5 d-flex flex-column" style={{ minHeight: "100vh" }}>
