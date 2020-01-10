@@ -5,6 +5,8 @@ import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 import { PagesContext } from "../../contexts/PagesContext";
 import { AuthContext } from "../../contexts/AuthContext";
 
+import logo from "./assats/icon_logo.svg";
+
 const NavBar = props => {
   const { pages } = useContext(PagesContext);
   const { auth } = useContext(AuthContext);
@@ -68,10 +70,13 @@ const NavBar = props => {
       expand="md"
       fixed="top"
       collapseOnSelect={true}
+      className="p-1"
     >
       <Container>
-        <Nav.Link eventKey="logo" as={NavLink} to="/">
-          <Navbar.Brand>¯\_(ツ)_/¯</Navbar.Brand>
+        <Nav.Link eventKey="logo" as={NavLink} to="/" className="p-0 m-0">
+          <Navbar.Brand>
+            <img src={logo} alt="" height="40" />
+          </Navbar.Brand>
         </Nav.Link>
 
         <Navbar.Toggle />
