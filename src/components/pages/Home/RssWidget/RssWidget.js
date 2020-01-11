@@ -4,39 +4,55 @@ import { Spinner, Media } from "react-bootstrap";
 import { RSSContext } from "../../../../contexts/RSSContext";
 
 const RssWidget = () => {
-  const { feed, provider } = useContext(RSSContext);
+  const { feed, channel } = useContext(RSSContext);
 
   return (
-    <div className="h-100 d-flex flex-column">
+    <div
+      className="h-100 d-flex flex-column"
+      dir={channel ? (channel.language === "he" ? "rtl" : "ltr") : "ltr"}
+      style={{ textAlign: "start" }}
+    >
       {feed ? (
         <>
-          {provider ? <p className="text-capitalize">{provider.title}</p> : ""}
-
-          <ul className="list-unstyled m-0">
-            {feed.map((item, i) => (
-              <Media as="li" key={i} className="mt-2 px-2">
+          {channel ? (
+            <Media>
+              {channel.image ? (
                 <img
-                  src=""
+                  src={channel.image}
                   alt=""
-                  height="50"
-                  className=""
+                  width="64"
+                  className="mx-3"
                   style={{
-                    filter: "grayscale(1)"
+                    filter: "grayscale(1) invert()",
+                    mixBlendMode: "screen"
                   }}
                 />
+              ) : (
+                ""
+              )}
+
+              <Media.Body className="my-auto">
+                <a href={channel.link} className="text-capitalize">
+                  <h6 className="m-0">{channel.title}</h6>
+                </a>
+              </Media.Body>
+            </Media>
+          ) : (
+            ""
+          )}
+
+          <ul className="list-unstyled m-0 p-0">
+            {feed.map((item, i) => (
+              <Media as="li" key={i} className="mt-2 px-2">
                 <Media.Body>
-                  <a
-                    href={item.children[1].value}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.children[0].value}
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    {item.title}
                   </a>
                   <small className="d-block d-lg-inline">
                     <span className="d-none d-lg-inline"> | </span>
-                    {item.children[5].value}
+                    {item.pubDate}
                   </small>
-                  <p>{item.children[2].value}</p>
+                  <p>{item.description}</p>
                 </Media.Body>
               </Media>
             ))}

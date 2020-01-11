@@ -10,7 +10,7 @@ import defaultProfileImage from "./assats/profile-image.png";
 
 const Profile = props => {
   const { auth } = useContext(AuthContext);
-  const { provider, feedUrl, dispatch } = useContext(RSSContext);
+  const { channel, feedUrl, dispatch } = useContext(RSSContext);
   const user = auth.users.find(user => user.username === auth.current);
   const [formRSSFeed, setFormRSSFeed] = useState(feedUrl);
   const [validated, setValidated] = useState(false);
@@ -86,7 +86,7 @@ const Profile = props => {
         <div className="col-12 col-lg-6 p-2">
           <Jumbotron className="p-3 pb-4 w-100 h-100">
             <p>RSS Options</p>
-            <p>Current feed: {provider ? provider.title : "None"}</p>
+            <p>Current feed: {channel ? channel.title : "None"}</p>
             <Form noValidate validated={validated} onSubmit={handleSubmitRSS}>
               <Form.Group controlId="feedUrl" className="m-1 mb-2">
                 <Form.Control
