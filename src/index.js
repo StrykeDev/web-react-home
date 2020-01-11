@@ -12,7 +12,7 @@ import TodoListContextProvider from "./contexts/TodoListContext";
 import WeatherContextProvider from "./contexts/WeatherContext";
 import RSSContextProvider from "./contexts/RSSContext";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";  Replaced with a theme
 import "./dark-theme-bootstrap.css";
 
 ReactDOM.render(
