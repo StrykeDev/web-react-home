@@ -42,7 +42,7 @@ const RssWidget = () => {
           )}
 
           <ul className="list-unstyled m-0 p-0">
-            {feed.map((item, i) => (
+            {feed.slice(0, 8).map((item, i) => (
               <Media as="li" key={i} className="mt-2 px-2">
                 <Media.Body>
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
