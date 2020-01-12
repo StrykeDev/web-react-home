@@ -6,14 +6,16 @@ import Footer from "../layout/Footer";
 import PageNotFound from "../pages/PageNotFound";
 
 import { PagesContext } from "../../contexts/PagesContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const App = () => {
-  const { pages } = useContext(PagesContext);
   document.title = "HomePage.io";
+  const { pages } = useContext(PagesContext);
+  const { auth } = useContext(AuthContext);
 
   return (
     <main className="pt-5 d-flex flex-column" style={{ minHeight: "100vh" }}>
-      <Navigation />
+      <Navigation links={pages.filter(page => page.nav)} user={auth.current} />
 
       <section className="flex-fill">
         <Switch>
