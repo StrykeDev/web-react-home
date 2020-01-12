@@ -4,15 +4,20 @@ import { Link } from "react-router-dom";
 import { TodoListContext } from "../../../contexts/TodoListContext";
 
 import TodoWidgetTodo from "./TodoWidgetTodo";
+import { Card } from "react-bootstrap";
 
 const TodoWidget = props => {
   const { todos } = useContext(TodoListContext);
 
-  const recent = todos.filter(todo => !todo.completed).slice(0, 5);
+  const recent = todos
+    .filter(todo => !todo.completed)
+    .slice(0, props.amount ? props.amount : 5);
 
   const list = (
-    <>
-      <p>Your oldest active todos:</p>
+    <Card.Body className="d-flex flex-column">
+      <Card.Title>
+        <small>Your oldest active todos</small>
+      </Card.Title>
 
       <ul className="list-unstyled flex-fill">
         {recent.map(todo => (
@@ -23,22 +28,20 @@ const TodoWidget = props => {
       <Link to="/todo-list" className="align-self-end">
         View full list
       </Link>
-    </>
+    </Card.Body>
   );
 
   const noList = (
-    <p className="text-center">
+    <Card.Body className="text-center">
       You don't have any todo.
       <Link to="/todo-list" className="d-block">
         Add a todo
       </Link>
-    </p>
+    </Card.Body>
   );
 
   return (
-    <div className="h-100 w-100 d-flex flex-column">
-      {recent.length > 0 ? list : noList}
-    </div>
+    <Card className="h-100 w-100">{recent.length > 0 ? list : noList}</Card>
   );
 };
 

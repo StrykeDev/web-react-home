@@ -13,17 +13,15 @@ const Home = props => {
       <HomeHeader />
 
       <Container className="d-flex flex-wrap">
-        <div className="col-12 col-lg-8 p-2">
+        <div className="p-2 col-12 col-lg-8">
           <WeatherWidget />
         </div>
 
-        <div className="col-12 col-lg-4 p-2">
-          <Jumbotron className="p-3 pb-4 w-100 h-100">
-            <TodoWidget />
-          </Jumbotron>
+        <div className="p-2 col-12 col-lg-4">
+          <TodoWidget />
         </div>
 
-        <div className="col-12 p-2">
+        <div className="p-2 col-12">
           <Jumbotron className="p-3 pb-4 w-100 h-100">
             <RssWidget />
           </Jumbotron>
