@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 import { TodoListContext } from "../../../contexts/TodoListContext";
-
-import TodoWidgetTodo from "./TodoWidgetTodo";
-import { Card } from "react-bootstrap";
 
 const TodoWidget = props => {
   const { todos } = useContext(TodoListContext);
@@ -21,7 +19,17 @@ const TodoWidget = props => {
 
       <ul className="list-unstyled flex-fill">
         {recent.map(todo => (
-          <TodoWidgetTodo key={todo.id} todo={todo} />
+          <li key={todo.id} className="border-bottom border-light my-2">
+            <span
+              style={
+                todo.completed
+                  ? { textDecoration: "line-through", opacity: 0.5 }
+                  : null
+              }
+            >
+              {todo.title}
+            </span>
+          </li>
         ))}
       </ul>
 
