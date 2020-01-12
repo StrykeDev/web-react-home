@@ -95,7 +95,9 @@ const RSSContextProvider = props => {
                 ? description.value
                 : "",
             pubDate:
-              pubDate && pubDate.value !== "<![CDATA[" ? pubDate.value : ""
+              pubDate && pubDate.value !== "<![CDATA["
+                ? Date.parse(pubDate.value)
+                : ""
           };
         });
 

@@ -5,6 +5,8 @@ import Loading from "../../common/Loading";
 
 import { RSSContext } from "../../../contexts/RSSContext";
 
+import { timespan } from "../../../helpers/DateFunc";
+
 import iconRss from "./assats/icon_rss.svg";
 
 const RssWidget = props => {
@@ -53,7 +55,9 @@ const RssWidget = props => {
             <Media.Body>
               <h6 className="text-primary">
                 {item.title}
-                <small className="d-block text-dark">{item.pubDate}</small>
+                <small className="d-block text-dark">
+                  {timespan(item.pubDate)}
+                </small>
               </h6>
 
               <p>{item.description}</p>
