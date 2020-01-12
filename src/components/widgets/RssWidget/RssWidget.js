@@ -35,8 +35,6 @@ const RssWidget = props => {
           }}
         />
       </span>
-
-      <hr />
     </>
   );
 
@@ -75,8 +73,8 @@ const RssWidget = props => {
         style={{ textAlign: "start" }}
       >
         {channel ? title() : ""}
-        {feed ? list() : <Loading />}
       </Card.Body>
+      {feed ? list() : <Loading />}
     </Card>
   );
 };
