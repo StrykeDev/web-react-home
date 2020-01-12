@@ -4,7 +4,8 @@ import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 
 import NavigationUser from "./NavigationUser";
 
-import logo from "./assats/icon_logo.svg";
+import iconLogo from "./assats/icon_logo.svg";
+import iconMenu from "./assats/icon_menu.svg";
 
 const Navigation = props => {
   const links = props.links.map(link => {
@@ -35,11 +36,14 @@ const Navigation = props => {
       <Container>
         <Nav.Link eventKey="logo" as={NavLink} to="/" className="p-0 m-0">
           <Navbar.Brand>
-            <img src={logo} alt="" height="40" />
+            <img src={iconLogo} alt="" height="40" />
           </Navbar.Brand>
         </Nav.Link>
 
-        <Navbar.Toggle />
+        <Navbar.Toggle className="border-0">
+          <img src={iconMenu} alt="" height="30" />
+        </Navbar.Toggle>
+
         <Navbar.Collapse>
           <Nav className="mr-auto">{links}</Nav>
           <NavDropdown.Divider />
