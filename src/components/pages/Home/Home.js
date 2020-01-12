@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Jumbotron } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 import WeatherWidget from "../../widgets/WeatherWidget";
 import RssWidget from "../../widgets/RssWidget";
@@ -22,9 +22,7 @@ const Home = props => {
         </div>
 
         <div className="p-2 col-12">
-          <Jumbotron className="p-3 pb-4 w-100 h-100">
-            <RssWidget />
-          </Jumbotron>
+          <RssWidget />
         </div>
       </Container>
     </>
