@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { TodoListContext } from "../../../../contexts/TodoListContext";
+import { TodoListContext } from "../../../contexts/TodoListContext";
 
 import TodoWidgetTodo from "./TodoWidgetTodo";
 

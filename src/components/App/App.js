@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import PageNotFound from "./PageNotFound";
+import Navigation from "../layout/Navigation";
+import Footer from "../layout/Footer";
+import PageNotFound from "../pages/PageNotFound";
 
 import { PagesContext } from "../../contexts/PagesContext";
 
@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <main className="pt-5 d-flex flex-column" style={{ minHeight: "100vh" }}>
-      <NavBar />
+      <Navigation />
 
       <section className="flex-fill">
         <Switch>

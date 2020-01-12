@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Jumbotron, Spinner } from "react-bootstrap";
 
-import { WeatherContext } from "../../../../contexts/WeatherContext";
+import { WeatherContext } from "../../../contexts/WeatherContext";
 
 import icoHumidity from "./assats/icon_humidity.svg";
 import icoWind from "./assats/icon_wind.svg";

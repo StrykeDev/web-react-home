@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Jumbotron } from "react-bootstrap";
 
-import WeatherWidget from "./WeatherWidget";
-import RssWidget from "./RssWidget";
-import TodoWidget from "./TodoWidget";
+import WeatherWidget from "../../widgets/WeatherWidget";
+import RssWidget from "../../widgets/RssWidget";
+import TodoWidget from "../../widgets/TodoWidget";
 
 import HomeHeader from "./HomeHeader";
 

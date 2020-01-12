@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
 
-import { PagesContext } from "../../contexts/PagesContext";
-import { AuthContext } from "../../contexts/AuthContext";
+import { PagesContext } from "../../../contexts/PagesContext";
+import { AuthContext } from "../../../contexts/AuthContext";
 
 import logo from "./assats/icon_logo.svg";
 
-const NavBar = props => {
+const Navigation = props => {
   const { pages } = useContext(PagesContext);
   const { auth } = useContext(AuthContext);
 
@@ -90,4 +90,4 @@ const NavBar = props => {
   );
 };
 
-export default NavBar;
+export default Navigation;

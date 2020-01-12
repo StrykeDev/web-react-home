@@ -2,9 +2,9 @@ import React, { createContext, useState } from "react";
 import Home from "../components/pages/Home/Home";
 import Profile from "../components/pages/Profile";
 import TodoList from "../components/pages/TodoList";
-import SignIn from "../components/auth/SignIn";
-import SignUp from "../components/auth/SignUp";
-import SignOut from "../components/auth/SignOut";
+import SignIn from "../components/pages/SignIn";
+import SignUp from "../components/pages/SignUp";
+import SignOut from "../components/pages/SignOut";
 
 export const PagesContext = createContext();
 

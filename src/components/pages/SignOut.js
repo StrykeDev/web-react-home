@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext";
 import { Button } from "react-bootstrap";
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 const SignOut = () => {
   const { dispatch } = useContext(AuthContext);
