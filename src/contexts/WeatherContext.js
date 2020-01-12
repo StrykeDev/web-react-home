@@ -13,7 +13,17 @@ const WeatherContextProvider = props => {
       `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${location.lat}&lon=${location.lon}&appid=${appid}`
     ).then(res => {
       if (res.status === 200) {
-        setWeather(res.data);
+        setWeather({
+          temp: res.data.main.temp,
+          humidity: res.data.main.humidity,
+          wind: res.data.wind.speed,
+          main: res.data.weather[0].main,
+          description: res.data.weather[0].description,
+          icon: res.data.weather[0].icon,
+          city: res.data.name,
+          country: res.data.sys.country
+        });
+
         console.log("Weather data updated.");
       } else {
         console.error("Failed to fetch weather data.", res);
