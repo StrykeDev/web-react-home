@@ -3,7 +3,7 @@ import { Container, Form, Button } from "react-bootstrap";
 
 import { AuthContext } from "../../contexts/AuthContext";
 
-import { Capitalize } from "../../helpers/StringFunc";
+import { capitalize } from "../../helpers/StringFunc";
 
 const SignUp = props => {
   const { auth, dispatch } = useContext(AuthContext);
@@ -25,8 +25,8 @@ const SignUp = props => {
       setValidated(false);
       const user = {
         username,
-        firstname: Capitalize(firstname),
-        lastname: Capitalize(lastname),
+        firstname: capitalize(firstname),
+        lastname: capitalize(lastname),
         password
       };
 
