@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Media, Card, ListGroup } from "react-bootstrap";
+import { Media, Card, ListGroup, Badge } from "react-bootstrap";
 
 import Loading from "../../common/Loading";
 
@@ -53,6 +53,13 @@ const RssWidget = props => {
             <Media.Body>
               <h6 className="text-primary">
                 {item.title}
+                {new Date() - item.pubDate < 86400000 ? (
+                  <Badge variant="primary" className="mx-1">
+                    New
+                  </Badge>
+                ) : (
+                  ""
+                )}
                 <small className="d-block text-dark">
                   {timespan(item.pubDate)}
                 </small>
@@ -67,13 +74,12 @@ const RssWidget = props => {
   );
 
   return (
-    <Card className="h-100 w-100">
-      <Card.Body
-        dir={channel ? (channel.language === "he" ? "rtl" : "ltr") : "ltr"}
-        style={{ textAlign: "start" }}
-      >
-        {channel ? title() : ""}
-      </Card.Body>
+    <Card
+      className="h-100 w-100"
+      dir={channel ? (channel.language === "he" ? "rtl" : "ltr") : "ltr"}
+      style={{ textAlign: "start" }}
+    >
+      <Card.Body>{channel ? title() : ""}</Card.Body>
       {feed ? list() : <Loading />}
     </Card>
   );
