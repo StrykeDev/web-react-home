@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img height="100" src="https://github.com/StrykeDev/react-home-page-io/blob/master/src/components/layout/Navigation/assats/icon_logo.svg">
+  <img height="100" src="https://github.com/StrykeDev/react-home-page-io/blob/main/src/components/layout/Navigation/assats/icon_logo.svg">
 </p>
 
 # Home Page
