@@ -3,7 +3,7 @@
   <img height="100" src="https://github.com/StrykeDev/react-home-page-io/blob/main/src/components/layout/Navigation/assats/icon_logo.svg">
 </p>
 
-# Home Page
+# Home
 
 A React home page made for practicing purposes.
 
